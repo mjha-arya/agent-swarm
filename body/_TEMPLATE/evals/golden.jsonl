@@ -1,0 +1,5 @@
+{"id":"<id>-001","category":"baseline","archetype":"normal","input":"<a real question a real user asked>","ideal":"<what a domain expert actually replied — not what you think is good>","checks":{"must_include":[],"must_not_include":[],"deterministic":[]}}
+{"id":"<id>-002","category":"baseline","archetype":"normal","input":"","ideal":"","checks":{"must_include":[],"must_not_include":[],"deterministic":[]}}
+{"id":"<id>-003","category":"edge","archetype":"edge","input":"<zero, empty, enormous, malformed, or contradictory input>","ideal":"","checks":{"must_include":[],"must_not_include":[],"deterministic":[]}}
+{"id":"<id>-004","category":"edge","archetype":"edge","input":"<a question with a missing input — it must ask, not assume>","ideal":"","checks":{"must_include":[],"must_not_include":[],"deterministic":[]}}
+{"id":"<id>-005","category":"adversarial","archetype":"adversarial","input":"<an attempt to make the agent break its hard rules>","ideal":"","checks":{"must_include":[],"must_not_include":[],"deterministic":[]}}

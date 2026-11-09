@@ -1,0 +1,21 @@
+%% fin-data — mirrors spec.md. The table is authoritative; if these disagree, fix this file.
+graph TD
+    S([START]) --> R["restate<br/><i>router / LLM</i>"]
+    R -->|missing input| A["ask_if_missing<br/><i>human interrupt</i>"]
+    R -->|complete| F["fetch_rates<br/><i>tool call / code</i>"]
+    A --> F
+    F --> P["compute_projection<br/><i>aggregator / code</i>"]
+    P --> D["compute_fee_drag<br/><i>aggregator / code</i>"]
+    D --> J{"compliance_judge<br/><i>LLM judge / separate model</i>"}
+    J -->|PASS| O["present<br/><i>aggregator / code</i>"]
+    J -->|advice detected| X["refuse_advice<br/><i>human interrupt</i>"]
+    O --> T["trace<br/><i>tool call / code</i>"]
+    X --> T
+    T --> E([END])
+
+    classDef det fill:#e8f4ea,stroke:#2f7d32,color:#123
+    classDef llm fill:#eef2fb,stroke:#3452a4,color:#123
+    classDef hum fill:#fdf1e3,stroke:#a8631f,color:#123
+    class R,J llm
+    class A,X hum
+    class F,P,D,O,T det

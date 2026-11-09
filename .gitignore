@@ -1,0 +1,25 @@
+# Traces are evidence, not source. They stay local.
+runs/*.jsonl
+!runs/.gitkeep
+
+# Memory stores are derived from traces; rebuild them, don't commit them.
+mind/unconscious/memory/*.jsonl
+!mind/unconscious/memory/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Secrets — never commit, ever
+.env
+.env.*
+*.key
+*.pem

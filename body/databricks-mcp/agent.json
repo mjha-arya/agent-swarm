@@ -1,0 +1,12 @@
+{
+  "id": "databricks-mcp",
+  "name": "DCT — Databricks MCP",
+  "soul": "soul/databricks-mcp.soul.md",
+  "golden": "body/databricks-mcp/evals/golden.jsonl",
+  "done_when": "spec sha256 matches the recorded digest; 23/23 tools enumerated; 12/12 contract cases pass; server runtime NOT executed",
+  "test": "python \"body/databricks-mcp/evals/verify_spec.py\"",
+  "min_cases": 12,
+  "refinements": ["R-009"],
+  "spec": "body/databricks-mcp/spec.md",
+  "spec_sha256": "22d385337f97b6979e92d177f316bc8839afc76d0ecdd383eaf52663fa646f6c"
+}

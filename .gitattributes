@@ -1,0 +1,15 @@
+# Normalise line endings — this repo lives on Windows but is read anywhere.
+* text=auto eol=lf
+
+*.md    text eol=lf
+*.json  text eol=lf
+*.jsonl text eol=lf
+*.csv   text eol=lf
+*.mmd   text eol=lf
+*.py    text eol=lf
+*.sh    text eol=lf
+
+# Binary
+*.png binary
+*.jpg binary
+*.pdf binary

@@ -1,0 +1,27 @@
+%% databricks-mcp — mirrors spec.md. The table (spec.md) is authoritative.
+graph TD
+    C["Claude Code<br/><i>MCP client</i>"] -->|"stdio"| S["databricksMcp.py<br/><i>server</i>"]
+    S --> R["tool registry<br/><i>23 tools</i>"]
+
+    R --> G{"guard<br/><i>deterministic</i>"}
+    G -->|"refuse"| L["audit line<br/><i>toolCalls&lt;yyyymmdd&gt;.jsonl</i>"]
+    G -->|"allow"| A["auth<br/><i>az token, cached</i>"]
+
+    A --> U["UAT workspace<br/><i>read + write</i>"]
+    A --> D["DEV workspace<br/><i>read only</i>"]
+    A --> Q["ARM quota<br/><i>Reader</i>"]
+
+    U --> L
+    D --> L
+    Q --> L
+    L --> E([response])
+
+    G -.->|"checks"| CHK["host allow-list<br/>WRITE_WORKSPACES = {uat}<br/>ALLOW_WRITE=1<br/>Application=SAT<br/>single read stmt, 200 rows<br/>regex allow-list<br/>never client-secret"]
+    S -.->|"default"| DR["dry_run=True<br/><i>create_sat_jobs</i>"]
+
+    classDef det fill:#e8f4ea,stroke:#2f7d32,color:#123
+    classDef ext fill:#eef2fb,stroke:#3452a4,color:#123
+    classDef hum fill:#fdf1e3,stroke:#a8631f,color:#123
+    class C,U,D,Q ext
+    class S,R,G,A,L,DR det
+    class CHK hum

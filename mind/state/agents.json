@@ -1,0 +1,71 @@
+{
+  "$comment": "The only source of truth for who exists. An agent absent here cannot be routed to. Status vocabulary is fixed in mind/conscious/gates.md.",
+  "version": 1,
+  "updated": "2026-10-22",
+  "lineages": {
+    "mine": "built in this workspace (Genie)",
+    "k21": "originated in the K21 course material",
+    "open-source": "adopted from an external repo"
+  },
+  "agents": [
+    {
+      "id": "clinic-booking",
+      "name": "Psalm",
+      "persona": "Ava (caller-facing name)",
+      "lineage": "mine",
+      "status": "authored",
+      "status_note": "working demo, not verified against a real clinic; no telephony",
+      "soul": null,
+      "body": "body/clinic-booking/body.md",
+      "product": "product of the swarms/ai-voice-agent/",
+      "golden_cases": "product of the swarms/ai-voice-agent/_harness.js",
+      "domains": ["eye care", "appointment booking", "voice", "reschedule", "cancel"],
+      "tools_read": ["check_availability"],
+      "tools_write": ["book_slot", "reschedule_appointment", "cancel_appointment"],
+      "outward_tools": ["transfer_human"],
+      "autonomy": "summoned only",
+      "owner": "manish",
+      "gates_passed": ["G1", "G2", "G2L", "G3", "G4"]
+    },
+    {
+      "id": "fin-data",
+      "name": "Fin Data",
+      "lineage": "mine",
+      "status": "authored",
+      "status_note": "not verified — no code, no run",
+      "soul": "soul/fin-data.soul.md",
+      "body": "body/fin-data/body.md",
+      "golden_cases": "body/fin-data/evals/golden.jsonl",
+      "domains": ["personal finance", "arithmetic on user's own numbers", "projections"],
+      "tools_read": ["fetch:market-rates"],
+      "tools_write": [],
+      "outward_tools": [],
+      "autonomy": "summoned only",
+      "owner": "manish",
+      "gates_passed": []
+    }
+  ],
+  "reserved_slots": [
+    {
+      "id": "TODO-mine",
+      "lineage": "mine",
+      "note": "next agent from the Genie workspace; extend an existing one before adding"
+    },
+    {
+      "id": "TODO-k21",
+      "lineage": "k21",
+      "note": "pick one from the K21 material and give it a soul"
+    },
+    {
+      "id": "TODO-oss",
+      "lineage": "open-source",
+      "note": "adopt one external agent; a soul is required, a fork is not enough"
+    }
+  ],
+  "policy": {
+    "max_agents_per_run": 3,
+    "default_budget": { "turns": 30, "usd": 1.0 },
+    "router_may_invent_agents": false,
+    "autonomous_runs": false
+  }
+}

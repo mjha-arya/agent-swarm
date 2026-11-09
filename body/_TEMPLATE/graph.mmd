@@ -1,0 +1,20 @@
+%% <agent_id> — mirrors spec.md. The table is authoritative.
+graph TD
+    S([START]) --> R["restate<br/><i>router</i>"]
+    R -->|missing| A["ask_if_missing<br/><i>human interrupt</i>"]
+    R -->|complete| F["fetch<br/><i>tool call</i>"]
+    A --> F
+    F --> C["compute<br/><i>aggregator / code</i>"]
+    C --> J{"judge<br/><i>LLM judge</i>"}
+    J -->|pass| P["present<br/><i>aggregator</i>"]
+    J -->|fail| H["human_interrupt"]
+    P --> T["trace"]
+    H --> T
+    T --> E([END])
+
+    classDef det fill:#e8f4ea,stroke:#2f7d32,color:#123
+    classDef llm fill:#eef2fb,stroke:#3452a4,color:#123
+    classDef hum fill:#fdf1e3,stroke:#a8631f,color:#123
+    class R,J llm
+    class A,H hum
+    class F,C,P,T det

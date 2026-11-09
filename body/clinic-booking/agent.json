@@ -1,0 +1,12 @@
+{
+  "id": "clinic-booking",
+  "name": "Psalm",
+  "soul": "soul/psalm.soul.md",
+  "golden": "body/clinic-booking/evals/golden.jsonl",
+  "done_when": "12 of 12 golden calls pass, 0 policy violations, p95 turn latency under 800ms",
+  "test": "node \"body/clinic-booking/evals/run_golden.js\"",
+  "browser_test": "node \"body/clinic-booking/evals/run_browser_proof.js\"",
+  "browser_artifact": "product of the swarms/ai-voice-agent/golden.js",
+  "min_cases": 12,
+  "refinements": ["R-007", "R-008"]
+}
