@@ -90,7 +90,7 @@ sequenceDiagram
     B->>G: answer + trace
     G-->>B: fail → back to owner (max 2)
     G->>H: pass → answer, ending in NOT CHECKED
-    B->>L: runs/<run_id>.jsonl
+    B->>L: runs/RUN_ID.jsonl
     L-->>U: filtered write-back
 ```
 
