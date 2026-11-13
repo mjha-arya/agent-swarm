@@ -34,6 +34,8 @@ body/    what an agent RUNS     graph (.mmd), spec, code, golden cases
 
 A problem statement enters at the top and leaves as one answer. `mind/` routes it, `body/` does the work, and `soul/` constrains what any agent is allowed to be.
 
+**→ [Full architecture with diagrams](ARCHITECTURE.md)**: layers, gate ladder, run lifecycle, write ownership, and what's executable today.
+
 ## What's in here
 
 | Path | What |
@@ -42,6 +44,7 @@ A problem statement enters at the top and leaves as one answer. `mind/` routes i
 | [`body/databricks-mcp/`](body/databricks-mcp/) | Read-only Databricks MCP agent: spec, graph, golden evals |
 | [`body/fin-data/`](body/fin-data/) | Reference agent: the shape every new agent copies |
 | [`refinements/`](refinements/) | Design ledger. Every change to *how the ecosystem works*, with its why (R-001 to R-009) |
+| [`ARCHITECTURE.md`](ARCHITECTURE.md) | **Start here.** Diagrams of the whole system on one page |
 | [`CONTRACT.md`](CONTRACT.md) | The mechanics: ownership, run lifecycle, gate taxonomy, invariants |
 | [`ENGINEERING.md`](ENGINEERING.md) | Current state and where to start reading |
 
